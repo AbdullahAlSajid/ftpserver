@@ -2,6 +2,12 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Title -->
+<title>FTP Server</title>
+
+<!-- Favicon -->
+<link rel="icon" href="/img/core-img/favicon.ico">
+
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 
@@ -25,7 +31,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   background: #f1f1f1;
 }*/
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password],select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -94,11 +100,18 @@ a {
         <label for="name"><b>Name</b></label>
         <input type="text" placeholder="Enter Name" name="name" required>
 
+        
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="password" required>
 
         <label for="psw-repeat"><b>Repeat Password</b></label>
         <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+        
+        <label for="name"><b>Type</b></label><br>
+        <select name="type" required>
+          <option value="2">Moderator</option>
+          <option value="1">Admin</option>
+        </select>
         <hr>
         <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 

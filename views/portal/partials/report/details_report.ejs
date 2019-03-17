@@ -1,0 +1,70 @@
+<div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Report Details</h4>
+          <form class="forms-sample" method="POST">
+            <div class="form-group">
+              <label for="exampleInputName1"><b>Title :</b> <%= report.title %></label>
+            </div>
+
+            <% if(info == 1){%>
+              <div class="form-group">
+                 <label for="exampleInputName1">
+                   <b>Reporter :</b> <% for(var i=0; i<reporterList.length; i++){%>
+                                      <% if(reporterList[i].id == report.reporter){%>
+                                       <%= reporterList[i].name%>
+                                     <%}}%> 
+                  </label>
+              </div>
+              <div class="form-group">
+                  <label for="exampleInputName1">
+                    <b>Section :</b><%if (report.section == 1 ) {%>
+                      Editor's Pick
+                    <% } else if(report.section == 2) {%>
+                      Popular
+                    <% } else if(report.section == 3) {%>
+                      Main Panel
+                    <%}%>  
+                   </label>
+              </div>
+              <div class="form-group">
+                  <label for="exampleInputName1">
+                    <b>Published at :</b>
+                    <% var onlyDate = report.publishedat.split("GMT",1); %>
+                      <%= onlyDate %>  
+                   </label>
+              </div>
+            <%}%>
+            <div class="form-group">
+                <label for="exampleInputName1">
+                  <b>Created at :</b>
+                  <% var onlyDate = report.createdat.split("GMT",1); %>
+                    <%= onlyDate %>  
+                 </label>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputName1">
+                    <b>Category :</b>  <% for(var i=0; i<categoryList.length; i++){%>
+                                        <% if(categoryList[i].id == report.category){%>
+                                         <%= categoryList[i].name%>
+                                       <%}}%>
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputName1">
+                   <b>Status :</b>   <%if (report.status == 0 ) {%>
+                        Pending
+                      <% } else if(report.status == 1) {%>
+                        Approved
+                      <% } else if(report.status == 2) {%>
+                        Edit Requsted
+                      <% } else if(report.status == 3) {%>
+                        Delete Requsted
+                      <%}%></label>
+            </div>
+            <div class="form-group">
+              <label for="exampleTextarea1"><b>Description :</b></label>
+              <p><%=report.description%></p>
+            </div>
+          </form>
+        </div>
+      </div>

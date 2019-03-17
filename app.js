@@ -4,6 +4,10 @@ var bodyParser = require('body-parser');
 var exSession = require('express-session');
 var cookieParser = require('cookie-parser');
 var website = require('./controllers/website');
+var home = require('./controllers/home');
+var login = require('./controllers/login');
+var logout = require('./controllers/logout');
+var register = require('./controllers/register');
 var app = express();
 
 
@@ -17,6 +21,10 @@ app.use(cookieParser());
 app.use(express.static('./public'));
 
 //app.use('/',website);
+app.use('/login', login);
+app.use('/register',register);
+app.use('/home',home);
+app.use('/logout',logout);
 
 //Routes
 app.get('/',(req,res)=>res.render('website/index'));

@@ -1,0 +1,34 @@
+<div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Profile</h4>
+          <form class="forms-sample" method="POST">
+            <div class="form-group">
+              <label for="exampleInputName1"><b>Name :</b> <%= user.name %></label>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputName1"><b>Email :</b> <%= user.email %></label>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputName1"><b>Type :</b> 
+                <% if(user.type == 1){%>
+                     Admin 
+                <%} else if(user.type == 2){%>
+                     Moderator 
+                <%}%>
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputName1"><b>Status :</b> 
+                <% if(user.status == 0){%>
+                     Pending 
+                 <%} else if(user.type == 1){%>
+                     Active 
+                 <%}%>
+                </label>
+            </div>
+          </form>
+        </div>
+      </div>

@@ -1,0 +1,47 @@
+<!--partial:navbar-->
+<% include ../partials/navbar.ejs %>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <%if (info == 1){ %>
+        <% include ../partials/editor_sidebar.ejs %>
+      <% } else if (info == 2){%>
+        <% include ../partials/reporter_sidebar.ejs %>
+      <% } %>
+      
+
+      <!-- partial:main -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+            <% include ../partials/editor/mail_form.ejs %>
+        </div>
+        <!-- content-wrapper ends -->
+
+        <!-- partial:partials/_footer.html -->
+        <% include ../partials/footer.ejs %>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="/portal/vendors/js/vendor.bundle.base.js"></script>
+  <script src="/portal/vendors/js/vendor.bundle.addons.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="/portal/js/off-canvas.js"></script>
+  <script src="/portal/js/misc.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="/portal/js/dashboard.js"></script>
+  <!-- End custom js for this page-->
+</body>
+
+</html>
+

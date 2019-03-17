@@ -31,7 +31,7 @@ module.exports = {
 		})
 	},
 	insert: function(users, callback){
-		var sql = "insert into users values(null, '"+ users.email+"','"+ users.name+"','"+ users.password+"', 2, 0)"
+		var sql = "insert into users values(null, '"+ users.email+"','"+ users.name+"','"+ users.password+"', '"+ users.type+"', 0)"
 		db.execute(sql, function(success){
 			callback(success);
 		});

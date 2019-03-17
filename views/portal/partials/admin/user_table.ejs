@@ -1,0 +1,65 @@
+
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">User Table</h4>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>UserId</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Type</th>
+              <th>Status</th>
+              <% if (type == 1 ){%>
+                <th>Action</th>
+              <%}%>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(var i = 0 ; i < uList.length; i++){ %>
+            <tr>
+              <td><%= uList[i].id %></td>
+              <td><%= uList[i].name %></td>
+              <td><%= uList[i].email %></td>
+              <td>
+                  <%if (uList[i].type == 1 ) {%>
+                    Admin
+                  <% } else if(uList[i].type == 2) {%>
+                    Moderator
+                  <%}%>
+                  
+              </td>
+              <td>
+                  <%if (uList[i].status == 0 ) {%>
+                    Pending
+                  <% } else if(uList[i].status == 1) {%>
+                    Active
+                  <%}%>
+              </td>
+              <% if (type == 1 ){%>
+                <td>
+                    <%if (uList[i].id != id ) {%>
+                      <form method="GET" action="/home/user/edit/<%=uList[i].id%>">
+                        <button type="submit" class="btn-info">Edit</button>
+                      </form>
+                      <br>
+                      <form method="POST" action="/home/user/delete/<%=uList[i].id%>">
+                          <button type="submit" class="btn-danger">Delete</button>
+                      </form>
+                      <br>
+                      <%if (uList[i].status == 0 ) {%>
+                        <form method="POST" action="/home/approve/<%=uList[i].id%>">
+                          <button type="submit" class="btn-success">Approve</button>
+                        </form>
+                      <%}%>
+                    <%}%>
+                  </td>
+              <%}%>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
