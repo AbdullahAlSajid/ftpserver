@@ -1,0 +1,65 @@
+
+  <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">My Reports</h4>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th>Created At</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(var i = 0 ; i < reportList.length; i++){ %>
+                <tr>
+                  <td><%= reportList[i].title %></td>
+                  <td>
+                      <% for(var j = 0; j < categoryList.length; j++){ %>
+                        <% if(categoryList[j].id == reportList[i].category){ %>
+                        <%= categoryList[j].name %>
+                        <% }} %>
+                  </td>
+                  <td>
+                      <% var onlyDate = reportList[i].createdat.split("GMT",1); %>
+                      <%= onlyDate %>
+                  </td>
+                  <td>
+                      <%if (reportList[i].status == 0 ) {%>
+                        Pending
+                      <% } else if(reportList[i].status == 1) {%>
+                        Approved
+                      <% } else if(reportList[i].status == 2) {%>
+                        Edit Requsted
+                      <% } else if(reportList[i].status == 3) {%>
+                        Delete Requsted
+                      <%}%>
+                  </td>
+                  <% if (info == 2 ){%>
+                    <td>
+                        <form method="GET" action="/home/report/myreport/<%=reportList[i].id%>">
+                            <button type="submit" class="btn-info">Show</button>
+                        </form>
+                        <br>
+                        <%if (reportList[i].status != 3 ) {%>
+                        <form method="GET" action="/home/report/myreport/edit/<%=reportList[i].id%>">
+                        <button type="submit" class="btn-success">Edit</button>
+                        </form>
+                        <br>
+                                      
+                        <form method="POST" action="/home/report/myreport/delete/<%=reportList[i].id%>">
+                            <button type="submit" class="btn-danger">Delete</button>
+                        </form>
+                        <%}}%>
+
+                      </td>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>

@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="card-body">
+      <h4 class="card-title">New Report</h4>
+      <form class="forms-sample" method="POST">
+        <div class="form-group">
+          <label for="exampleInputName1">Title</label>
+          <input type="text" class="form-control" id="exampleInputName1" name="title">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect2">Category</label>
+            <select class="form-control" name="category">
+            <% for(var i = 0 ; i < categoryList.length; i++){ %>
+                <option value="<%= categoryList[i].id %>"><%= categoryList[i].name %></option>
+            <%}%>
+            </select>
+        </div>
+        <!-- <div class="form-group">
+          <label>Image</label>
+          <br>
+          <input class="form-control" type="file" name="uploaded_image" accept>
+        </div> -->
+        <div class="form-group">
+          <label for="exampleTextarea1">Description</label>
+          <textarea class="form-control" id="exampleTextarea1" rows="3" name="description"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success mr-2">Submit</button>
+      </form>
+    </div>
+  </div>
