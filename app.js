@@ -3,7 +3,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var exSession = require('express-session');
 var cookieParser = require('cookie-parser');
+var website = require('./controllers/website');
 var app = express();
+
 
 //Configuration
 app.set('view engine','ejs');
@@ -12,7 +14,15 @@ app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(exSession({secret: 'my top secret',saveUninitialized: true, resave: false}));
 app.use(cookieParser());
+app.use(express.static('./public'));
+
+//app.use('/',website);
 
 //Routes
+app.get('/',(req,res)=>res.render('website/index'));
 
 //Server Startup
+var port = 7000;
+app.listen(port,function(){
+    console.log('server started at '+port);
+});
