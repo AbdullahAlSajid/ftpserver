@@ -3,17 +3,17 @@
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
-      <%if (info == 1){ %>
-        <% include ../partials/editor_sidebar.ejs %>
-      <% } else if (info == 2){%>
-        <% include ../partials/reporter_sidebar.ejs %>
+      <%if (type == 1){ %>
+        <% include ../partials/admin_sidebar.ejs %>
+      <% } else if (type == 2){%>
+        <% include ../partials/moderator_sidebar.ejs %>
       <% } %>
       
 
       <!-- partial:main -->
       <div class="main-panel">
         <div class="content-wrapper">
-            <% include ../partials/report/approve_pending_report_form.ejs %>
+            <% include ../partials/content/active_content_list.ejs %>
         </div>
         <!-- content-wrapper ends -->
 

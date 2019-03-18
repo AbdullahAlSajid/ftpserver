@@ -1,53 +1,50 @@
 
   <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Pending Reports</h4>
+          <h4 class="card-title">Available Contents</h4>
           <div class="table-responsive">
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th>Title</th>
+                  <th>Name</th>
                   <th>Category</th>
-                  <th>Pulished At</th>
-                  <th>Reporter</th>
+                  <th>Uploader</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                <% for(var i = 0 ; i < reportList.length; i++){ %>
+                <% for(var i = 0 ; i < contentList.length; i++){ %>
                 <tr>
-                  <td><%= reportList[i].title %></td>
+                  <td><%= contentList[i].name%></td>
                   <td>
                       <% for(var j = 0; j < categoryList.length; j++){ %>
-                        <% if(categoryList[j].id == reportList[i].category){ %>
+                        <% if(categoryList[j].id == contentList[i].category){ %>
                         <%= categoryList[j].name %>
                       <% }} %>
                   </td>
                   <td>
-                      <% var onlyDate = reportList[i].publishedat.split("GMT",1); %>
-                      <%= onlyDate %>
+                      <% for(var j = 0; j < uploaderList.length; j++){ %>
+                        <% if(uploaderList[j].id == contentList[i].uploader){ %>
+                        <%= uploaderList[j].name %>
+                        <% if(uploaderList[j].type==1){%>
+                        (Admin)
+                        <%}else if(uploaderList[j].type==2){%>
+                        (Moderator)
+                      <% }}} %>
                   </td>
-                  <td>
-                      <% for(var j = 0; j < reporterList.length; j++){ %>
-                        <% if(reporterList[j].id == reportList[i].reporter){ %>
-                        <%= reporterList[j].name %>
-                      <% }} %>
-                  </td>
-                  <% if (info == 1 ){%>
                     <td>
-                        <form method="GET" action="/home/report/active/<%=reportList[i].id%>">
+                        <form method="GET" action="/home/content/<%=contentList[i].id%>">
                             <button type="submit" class="btn-info">Show</button>
                         </form>
                         <br>
-                        <form method="GET" action="/home/report/active/edit/<%=reportList[i].id%>">
+                        <form method="GET" action="/home/content/edit/<%=contentList[i].id%>">
                             <button type="submit" class="btn-success">Edit</button>
                         </form>
                         <br>
                         
-                        <form method="POST" action="/home/report/active/delete/<%=reportList[i].id%>">
+                        <form method="POST" action="/home/content/delete/<%=contentList[i].id%>">
                             <button type="submit" class="btn-danger">Delete</button>
                         </form>
-                        <%}%>
                     </td>
                 </tr>
                 <% } %>

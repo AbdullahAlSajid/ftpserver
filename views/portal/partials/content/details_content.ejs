@@ -1,0 +1,47 @@
+<div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Content Details</h4>
+          <form class="forms-sample" method="POST">
+            <div class="form-group">
+              <label for="exampleInputName1"><b>Name :</b> <%= contentt.name %></label>
+            </div>
+
+              <div class="form-group">
+                 <label for="exampleInputName1">
+                   <b>Uploader :</b> <% for(var i=0; i<uploaderList.length; i++){%>
+                                      <% if(uploaderList[i].id == contentt.uploader){%>
+                                       <%= uploaderList[i].name%>
+                                     <%}}%> 
+                  </label>
+              </div>
+            <div class="form-group">
+                <label for="exampleInputName1">
+                    <b>Category :</b>  <% for(var i=0; i<categoryList.length; i++){%>
+                                        <% if(categoryList[i].id == contentt.category){%>
+                                         <%= categoryList[i].name%>
+                                       <%}}%>
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputName1">
+                    <b>Sub-Category :</b>  <% for(var i=0; i<subcategoryList.length; i++){%>
+                                        <% if(subcategoryList[i].id == contentt.sub_category){%>
+                                         <%= subcategoryList[i].name%>
+                                       <%}}%>
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputName1">
+                    <b>Language :</b>  <% for(var i=0; i<filterList.length; i++){%>
+                                        <% if(filterList[i].id == contentt.filter){%>
+                                         <%= filterList[i].name%>
+                                       <%}}%>
+                </label>
+            </div>
+            <div class="form-group">
+              <label for="exampleTextarea1"><b>Description :</b></label>
+              <p><%=contentt.description%></p>
+            </div>
+          </form>
+        </div>
+      </div>

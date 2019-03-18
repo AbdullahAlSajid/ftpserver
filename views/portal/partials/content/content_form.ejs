@@ -3,14 +3,30 @@
       <h4 class="card-title">New Report</h4>
       <form class="forms-sample" method="POST">
         <div class="form-group">
-          <label for="exampleInputName1">Title</label>
-          <input type="text" class="form-control" id="exampleInputName1" name="title">
+          <label for="exampleInputName1">Name</label>
+          <input type="text" class="form-control" id="exampleInputName1" name="name">
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect2">Category</label>
             <select class="form-control" name="category">
             <% for(var i = 0 ; i < categoryList.length; i++){ %>
                 <option value="<%= categoryList[i].id %>"><%= categoryList[i].name %></option>
+            <%}%>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect2">Sub-Category</label>
+            <select class="form-control" name="sub_category">
+            <% for(var i = 0 ; i < subcategoryList.length; i++){ %>
+                <option value="<%= subcategoryList[i].id %>"><%= subcategoryList[i].name %></option>
+            <%}%>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect2">Language</label>
+            <select class="form-control" name="filter">
+            <% for(var i = 0 ; i < filterList.length; i++){ %>
+                <option value="<%= filterList[i].id %>"><%= filterList[i].name %></option>
             <%}%>
             </select>
         </div>
