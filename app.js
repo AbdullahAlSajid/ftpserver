@@ -20,14 +20,14 @@ app.use(exSession({secret: 'my top secret',saveUninitialized: true, resave: fals
 app.use(cookieParser());
 app.use(express.static('./public'));
 
-//app.use('/',website);
+
 app.use('/login', login);
 app.use('/register',register);
 app.use('/home',home);
 app.use('/logout',logout);
+app.use('/',website);
 
 //Routes
-app.get('/',(req,res)=>res.render('website/index'));
 
 //Server Startup
 var port = 7000;

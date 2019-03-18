@@ -1,0 +1,52 @@
+<div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Edit Content</h4>
+          <form class="forms-sample" method="POST" action="/home/content/edit/<%=content.id%>">
+            <div class="form-group">
+              <label for="exampleInputName1"><b>Name :</b></label>
+              <input type="text" class="form-control" id="exampleInputName1" name="name" value="<%= content.name %>">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputName1"><b>Category :</b></label>
+                <select class="form-control" name="category">
+                    <% for(var i = 0 ; i < categoryList.length; i++){ %>
+                        <option value="<%= categoryList[i].id %>" 
+                            <%if(categoryList[i].id==content.category){%>
+                                 selected 
+                                 <%}%>
+                        </option><%= categoryList[i].name %></option>
+                    <%}%>
+                </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputName1"><b>Sub-Category :</b></label>
+              <select class="form-control" name="subcategory">
+                  <% for(var i = 0 ; i < subcategoryList.length; i++){ %>
+                      <option value="<%= subcategoryList[i].id %>" 
+                          <%if(subcategoryList[i].id==content.sub_category){%>
+                               selected 
+                               <%}%>
+                      </option><%= subcategoryList[i].name %></option>
+                  <%}%>
+              </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputName1"><b>Filter :</b></label>
+            <select class="form-control" name="filter">
+                <% for(var i = 0 ; i < filterList.length; i++){ %>
+                    <option value="<%= filterList[i].id %>" 
+                        <%if(filterList[i].id==content.filter){%>
+                             selected 
+                             <%}%>
+                    </option><%= filterList[i].name %></option>
+                <%}%>
+            </select>
+        </div>
+            <div class="form-group">
+              <label for="exampleTextarea1"><b>Description :</b></label>
+              <textarea class="form-control" id="exampleTextarea1" rows="10" name="description"><%=content.description%></textarea>
+            </div>
+            <button type="submit" class="btn btn-success mr-2">Submit</button>
+          </form>
+        </div>
+      </div>
